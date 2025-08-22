@@ -6,7 +6,7 @@ import { updateSpreadsheet } from "#services/googleService.js";
 import type { Spreadsheet } from "#models/Spreadsheet.js";
 
 export function scheduleWBTariffsJob() {
-    cron.schedule("* * * * *", async () => {
+    cron.schedule("0 * * * *", async () => {
         console.log("Update WB Tariffs job started:", new Date().toISOString());
 
         const today = new Date().toISOString().slice(0, 10);
