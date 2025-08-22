@@ -5,7 +5,7 @@
 export async function up(knex) {
     return knex.schema.createTable("warehouses", (table) => {
         table.increments("id").primary();
-        table.string("name").notNullable();
+        table.string("name").notNullable().unique();
         table.string("geo_name").notNullable()
     });
 }

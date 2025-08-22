@@ -8,6 +8,8 @@ networks:
 volumes:
   postgres-vol:
     driver: local
+  google-credentials-vol:
+    driver: local
 
 services:
 
@@ -59,7 +61,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PORT: ${APP_PORT}
+      WB_API_KEY: ${WB_API_KEY}
       NODE_ENV: production
+      GOOGLE_SHEET_RANGE: ${GOOGLE_SHEET_RANGE}
+      GOOGLE_APPLICATION_CREDENTIALS: /secrets/google-service-account.json
 
     ports:
       - ${APP_PORT}:${APP_PORT}
@@ -69,6 +74,8 @@ services:
         condition: service_healthy
     networks:
       - postgres-net
+    volumes:
+      - ./google-service-account.json:/secrets/google-service-account.json:ro
 
     logging:
       driver: json-file
