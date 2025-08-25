@@ -64,6 +64,7 @@ services:
       WB_API_KEY: ${WB_API_KEY}
       NODE_ENV: production
       GOOGLE_SHEET_RANGE: ${GOOGLE_SHEET_RANGE}
+      GOOGLE_SHEET_IDS: ${GOOGLE_SHEET_IDS}
       GOOGLE_APPLICATION_CREDENTIALS: /secrets/google-service-account.json
 
     ports:

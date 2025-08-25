@@ -21,6 +21,7 @@ const envSchema = z.object({
     ]),
     WB_API_KEY: z.string(),
     GOOGLE_SHEET_RANGE: z.string(),
+    GOOGLE_SHEET_IDS: z.string().transform((value) => value.split(",").map((id) => id.trim())),
 });
 
 const env = envSchema.parse({
@@ -32,7 +33,8 @@ const env = envSchema.parse({
     NODE_ENV: process.env.NODE_ENV,
     APP_PORT: process.env.APP_PORT,
     WB_API_KEY: process.env.WB_API_KEY,
-    GOOGLE_SHEET_RANGE: process.env.GOOGLE_SHEET_RANGE
+    GOOGLE_SHEET_RANGE: process.env.GOOGLE_SHEET_RANGE,
+    GOOGLE_SHEET_IDS: process.env.GOOGLE_SHEET_IDS,
 });
 
 export default env;
