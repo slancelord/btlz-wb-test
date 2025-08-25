@@ -24,6 +24,7 @@ POSTGRES_DB=postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
 GOOGLE_SHEET_RANGE=stocks_coefs!A1
+GOOGLE_SHEET_IDS= id таблиц через запятую
 APP_PORT=5000
 WB_API_KEY=<ваш_ключ>
 ```
